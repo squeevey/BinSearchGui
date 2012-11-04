@@ -7,6 +7,10 @@
 //
 
 #import "BinSearchGuiAppDelegate.h"
+#include "BinSearchGuiViewController.h"
+@interface BinSearchGuiAppDelegate()
+@property	(nonatomic,strong) IBOutlet BinSearchGuiViewController *binSearchGuiViewController;
+@end
 
 @implementation BinSearchGuiAppDelegate
 
@@ -16,7 +20,9 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-	// Insert code here to initialize your application
+	self.binSearchGuiViewController = [[BinSearchGuiViewController alloc]initWithNibName:@"BinSearchGuiViewController" bundle:nil];
+	[self.window.contentView addSubview:self.binSearchGuiViewController.view];
+	self.binSearchGuiViewController.view.frame = ((NSView *)self.window.contentView).bounds;
 }
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.michalesevy.BinSearchGui" in the user's Application Support directory.
